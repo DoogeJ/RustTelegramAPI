@@ -8,7 +8,7 @@ using Oxide.Core.Libraries.Covalence;
 
 namespace Oxide.Plugins
 {
-    [Info("Telegram Bot API", "NoxiousPluK", "0.1.0")]
+    [Info("Telegram Bot API", "NoxiousPluK", "0.1.1")]
     [Description("Send messages using the Telegram Bot API")]
     public class TelegramBotAPI : CovalencePlugin
     {
