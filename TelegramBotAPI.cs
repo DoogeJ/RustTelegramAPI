@@ -9,7 +9,7 @@ using Oxide.Core.Libraries.Covalence;
 
 namespace Oxide.Plugins
 {
-    [Info("Telegram Bot API", "NoxiousPluK", "0.1.1")]
+    [Info("Telegram Bot API", "NoxiousPluK", "0.1.2")]
     [Description("Send messages using the Telegram Bot API")]
     public class TelegramBotAPI : CovalencePlugin
     {
@@ -29,6 +29,9 @@ namespace Oxide.Plugins
 
             [JsonProperty("Try sending error messages to Telegram")]
             public bool SendErrors = true;
+
+            [JsonProperty("Announce plugin (re)load to Telegram")]
+            public bool AnnounceLoad = false;
 
             public string ToJson() => JsonConvert.SerializeObject(this);
             public Dictionary<string, object> ToDictionary() => JsonConvert.DeserializeObject<Dictionary<string, object>>(ToJson());
@@ -69,13 +72,16 @@ namespace Oxide.Plugins
 
         void OnServerInitialized(bool initial)
         {
-            if (initial)
+            if (config.AnnounceLoad)
             {
-                SendTelegramMessage($"ℹ Plugin loaded: *Telegram Bot API*");
-            }
-            else
-            {
-                SendTelegramMessage($"ℹ Plugin reloaded: *Telegram Bot API*");
+                if (initial)
+                {
+                    SendTelegramMessage($"ℹ Plugin loaded: *Telegram Bot API*");
+                }
+                else
+                {
+                    SendTelegramMessage($"ℹ Plugin reloaded: *Telegram Bot API*");
+                }
             }
         }
 

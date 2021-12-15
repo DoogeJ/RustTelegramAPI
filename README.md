@@ -7,7 +7,8 @@ This allows other plugins to send messages using the [Telegram Bot API](https://
   "Telegram Bot API Key": "[bot id here]:[access token here]",
   "Default ID for messages": -12345,
   "ID for error messages": -12345,
-  "Try sending error messages to Telegram": true
+  "Try sending error messages to Telegram": true,
+  "Announce plugin (re)load to Telegram": false
 }
 ```
 
