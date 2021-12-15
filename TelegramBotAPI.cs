@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Newtonsoft.Json;
 using Oxide.Core;
 using Oxide.Core.Configuration;
@@ -107,14 +108,15 @@ namespace Oxide.Plugins
 
         private string Escape(string Input)
         {
-            Input = Input.Replace("_", "\\_");
-            Input = Input.Replace("*", "\\*");
-            Input = Input.Replace("`", "\\`");
-            Input = Input.Replace("[", "\\[");
-            Input = Input.Replace("&", "%26");
-            Input = Input.Replace("?", "%3F");
-            Input = Input.Replace("#", "%23");
-            return Input;
+            StringBuilder input = new StringBuilder(Input);
+            input.Replace("_", "\\_");
+            input.Replace("*", "\\*");
+            input.Replace("`", "\\`");
+            input.Replace("[", "\\[");
+            input.Replace("&", "%26");
+            input.Replace("?", "%3F");
+            input.Replace("#", "%23");
+            return input.ToString();
         }
 
         private void SendTelegramError(string message)
