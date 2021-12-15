@@ -8,9 +8,9 @@ using Oxide.Core.Libraries.Covalence;
 
 namespace Oxide.Plugins
 {
-    [Info("Telegram", "NoxiousPluK", "0.1.0")]
+    [Info("Telegram Bot API", "NoxiousPluK", "0.1.0")]
     [Description("Send messages using the Telegram Bot API")]
-    public class Telegram : CovalencePlugin
+    public class TelegramBotAPI : CovalencePlugin
     {
         #region Configuration
         private Configuration config;
@@ -70,19 +70,19 @@ namespace Oxide.Plugins
         {
             if (initial)
             {
-                SendTelegramMessage($"ℹ Plugin loaded: *Telegram*");
+                SendTelegramMessage($"ℹ Plugin loaded: *Telegram Bot API*");
             }
             else
             {
-                SendTelegramMessage($"ℹ Plugin reloaded: *Telegram*");
+                SendTelegramMessage($"ℹ Plugin reloaded: *Telegram Bot API*");
             }
         }
 
-        public void SendTelegramMessage(string message, long chatID = 0, bool escape = false, string parseMode = "Markdown")
+        private void SendTelegramMessage(string message, long chatID = 0, bool escape = false, string parseMode = "Markdown")
         {
             if (config.TelegramBotAPIKey == "id:key")
             {
-                LogWarning("Telegram plug-in not configured.");
+                LogWarning("Telegram Bot API plug-in not configured.");
                 return;
             }
 
@@ -105,7 +105,7 @@ namespace Oxide.Plugins
             }, this);
         }
 
-        public string Escape(string Input)
+        private string Escape(string Input)
         {
             Input = Input.Replace("_", "\\_");
             Input = Input.Replace("*", "\\*");
