@@ -18,9 +18,9 @@ This allows other plugins to send messages using the [Telegram Bot API](https://
 2. Optional: Add the bot to the chat group you want the messages in (alternatively you can have it talk directly to you)
 3. Get your Bot API Token
 4. Add [RawDataBot](https://t.me/RawDataBot) or another helper to the chat group you want the messages in, or talk to that bot directly (Look for message->chat->id in the JSON output)
-5. Edit `Telegram.json` in the config-directory
+5. Edit `TelegramBotAPI.json` in the config-directory
 6. Set the API key and chat ID's accordingly
-7. Use `oxide.reload Telegram` in the server console or RCON to reload the plugin
+7. Use `oxide.reload TelegramBotAPI` in the server console or RCON to reload the plugin
 
 # For developers
 **API Methods**
